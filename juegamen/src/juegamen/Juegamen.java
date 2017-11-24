@@ -31,12 +31,15 @@ public class Juegamen {
         juegocartas(cartas);
         //turno jugador
         float puntosjug = 0;
-        for (int i = 0, x = 0; i < cartas.length && x != 2; i++) {
-
-            System.out.println("Tu carta es:" + cartas[i]);
-            if (puntosjug <= 7) {
-
-                puntosjug = (float) (puntosjug + cartas[i]);
+        float puntosmaq = 0;
+        int carta = 0;
+        int x = 0;
+        do {
+            //for (int i = 0, x = 0; i < cartas.length && x != 2; i++) {
+            System.out.println("Tu carta es:" + cartas[carta]);
+            if (cartas[carta] <= 7) {
+                //puntosjug+=cartas[i]
+                puntosjug = (float) (puntosjug + cartas[carta]);
             } else {
                 puntosjug = (float) (puntosjug + 0.5);
             }
@@ -50,45 +53,44 @@ public class Juegamen {
                         + "pulse 2 plantarse");
                 x = sc.nextInt();
             }
+            carta++;
 
-        }
-        //turno maquina
-        juegocartas(cartas);
-        float puntosmaq = 0;
-        for (int i = 0, x = 0; i < cartas.length && x != 2; i++) {
+        } while (x != 2);//turno maquina
+        if (puntosjug > 7.5) {
+            System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
+        } else {
 
-            if (puntosmaq < puntosjug) {
-                if (cartas[i] <= 7) {
-                    puntosmaq = (float) (puntosmaq + cartas[i]);
-                    //puntosmaq += cartas[i];
-                } else {
-                    x = 2;
-                    puntosmaq = (float) (puntosmaq + 0.5);
-                    //puntosmaq += 0.5;
+            do {
+                juegocartas(cartas);
+                int cartis = 0;
+                System.out.println("Carta contrarea:" + cartas[cartis]);
+                //for (int i = 0, x = 0; i < cartas.length && x != 2; i++) {
+                if (puntosmaq < puntosjug) {
+                    if (cartas[cartis] <= 7) {
+                        puntosmaq = (float) (puntosmaq + cartas[cartis]);
+                        //puntosmaq += cartas[i];
+                    } else {
+                        x = 2;
+                        puntosmaq = (float) (puntosmaq + 0.5);
+                        //puntosmaq += 0.5;
+                    }
+                    System.out.println("Los puntos de la maquina son: " + puntosmaq);
                 }
-            }
-            System.out.println("Carta contrarea:" + cartas[i]);
-            if (puntosmaq > 7.5) {
-                System.out.println("Numero superior a 7.5");
-                System.out.println("Has ganado");
-                System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
-            } else if (puntosmaq > puntosjug) {
-                System.out.println("Gana la maquina");
-                System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
-            } else if (puntosmaq < puntosjug) {
-                System.out.println("Has ganado");
-                System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);;
-            } else if (puntosmaq == puntosjug) {
-                System.out.println("Gana la maquina");
-                System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
-            } else if (puntosjug > 7.5) {
-                System.out.println("Gana la maquina");
-                System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
-            } else if (puntosmaq == 7.5) {
-                System.out.println("Gana la maquina");
-                System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
-            }
-
+                if (puntosmaq > 7.5) {
+                    System.out.println("Numero superior a 7.5");
+                    System.out.println("Has ganado");
+                    System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
+                } else if (puntosmaq > puntosjug) {
+                    System.out.println("Gana la maquina");
+                    System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
+                } else if (puntosmaq < puntosjug) {
+                    System.out.println("Has ganado");
+                    System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);;
+                } else if (puntosmaq == puntosjug) {
+                    System.out.println("Gana la maquina");
+                    System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
+                }
+            } while (puntosmaq < puntosjug);
         }
     }
 
@@ -109,5 +111,3 @@ public class Juegamen {
     }
 
 }
-
-
