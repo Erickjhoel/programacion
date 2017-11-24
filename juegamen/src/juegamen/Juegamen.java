@@ -46,47 +46,42 @@ public class Juegamen {
             System.out.println("Tus puntos son" + puntosjug);
             if (puntosjug > 7.5) {
                 x = 2;
-                System.out.println("Numero superior a 7.5");
+                System.out.println("El numero sobrepasa 7.5");
             } else {
-
-                System.out.println("Pulse cualquier numero para pedir otro numero o "
-                        + "pulse 2 plantarse");
+                System.out.println("Pulsa '2' para plantarte o pulsa otro numero para pedir otra carta");
                 x = sc.nextInt();
             }
             carta++;
-
         } while (x != 2);//turno maquina
         if (puntosjug > 7.5) {
             System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
         } else {
-
             do {
                 juegocartas(cartas);
                 int cartis = 0;
-                System.out.println("Carta contrarea:" + cartas[cartis]);
+                System.out.println("Carta de la maquina:" + cartas[cartis]);
                 //for (int i = 0, x = 0; i < cartas.length && x != 2; i++) {
                 if (puntosmaq < puntosjug) {
                     if (cartas[cartis] <= 7) {
                         puntosmaq = (float) (puntosmaq + cartas[cartis]);
                         //puntosmaq += cartas[i];
                     } else {
-                        x = 2;
                         puntosmaq = (float) (puntosmaq + 0.5);
                         //puntosmaq += 0.5;
                     }
                     System.out.println("Los puntos de la maquina son: " + puntosmaq);
                 }
                 if (puntosmaq > 7.5) {
-                    System.out.println("Numero superior a 7.5");
+                    System.out.println("El numero sobrepasa 7.5");
                     System.out.println("Has ganado");
                     System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
                 } else if (puntosmaq == puntosjug) {
-                    System.out.println("Gana la maquina");
+                    System.out.println("Has perdido gana la maquina");
                     System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
                 }   //puntosmaq>puntosjug
             } while (puntosmaq < puntosjug);
             if (puntosmaq > puntosjug) {
-                System.out.println("Gana la maquina");
+                System.out.println("Has perdido gana la maquina");
                 System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
             }
         }
@@ -97,7 +92,6 @@ public class Juegamen {
         int posicion;
         int posicion2;
         int swap;
-
         for (int i = 0; i < 20; i++) {
             posicion = generadorNumerosAleatorios.nextInt(array.length);
             posicion2 = generadorNumerosAleatorios.nextInt(array.length);
@@ -105,7 +99,5 @@ public class Juegamen {
             array[posicion] = array[posicion2];
             array[posicion2] = swap;
         }
-
     }
-
 }
