@@ -80,17 +80,15 @@ public class Juegamen {
                     System.out.println("Numero superior a 7.5");
                     System.out.println("Has ganado");
                     System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
-                } else if (puntosmaq > puntosjug) {
-                    System.out.println("Gana la maquina");
-                    System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
-                } else if (puntosmaq < puntosjug) {
-                    System.out.println("Has ganado");
-                    System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);;
                 } else if (puntosmaq == puntosjug) {
                     System.out.println("Gana la maquina");
                     System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
-                }
+                }   //puntosmaq>puntosjug
             } while (puntosmaq < puntosjug);
+            if (puntosmaq > puntosjug) {
+                System.out.println("Gana la maquina");
+                System.out.println("Los puntos son" + puntosjug + " y " + puntosmaq);
+            }
         }
     }
 
